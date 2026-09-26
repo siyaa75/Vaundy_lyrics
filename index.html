@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>VAUNDY ASIA ARENA TOUR "HORO" TAIPEI 參戰大補帖</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,800;0,900;1,900&family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-red: #9e121b;
+      --deep-red: #5c050b;
+      --bg-dark: #120204;
+      --accent-yellow: #fbee4f;
+      --accent-cyan: #46e0e6;
+    }
+    body {
+      background-color: var(--bg-dark);
+      color: #f3f4f6;
+      font-family: 'Noto Sans TC', 'Noto Sans JP', sans-serif;
+    }
+    .tour-gradient-text {
+      background: linear-gradient(180deg, #fbee4f 20%, #ffc03d 45%, #46e0e6 90%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .vaundy-glow {
+      text-shadow: 0 0 25px rgba(251, 238, 79, 0.4);
+    }
+    .hide-ruby rt {
+      display: none;
+    }
+    .hide-romaji .romaji-line {
+      display: none;
+    }
+    ruby {
+      ruby-align: center;
+      font-feature-settings: "palt";
+    }
+    rt {
+      font-size: 0.65em;
+      color: #fbee4f;
+      font-weight: 500;
+      letter-spacing: 0;
+    }
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #180306;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #6e1017;
+      border-radius: 9999px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #b81724;
+    }
+    
+    /* Custom input styling */
+    .custom-input {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(158, 18, 27, 0.4);
+      color: #f3f4f6;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      width: 100%;
+      transition: all 0.2s;
+    }
+    .custom-input:focus {
+      outline: none;
+      border-color: #fbee4f;
+      box-shadow: 0 0 0 2px rgba(251, 238, 79, 0.2);
+    }
+    .custom-textarea {
+      background-color: rgba(0, 0, 0, 0.5);
+      border: 1px solid rgba(158, 18, 27, 0.4);
+      color: #f3f4f6;
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      font-size: 0.875rem;
+      width: 100%;
+      min-height: 120px;
+      font-family: monospace;
+      transition: all 0.2s;
+    }
+    .custom-textarea:focus {
+      outline: none;
+      border-color: #fbee4f;
+      box-shadow: 0 0 0 2px rgba(251, 238, 79, 0.2);
+    }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col bg-[radial-gradient(circle_at_top,#730c14_0%,#330307_45%,#0f0103_95%)] bg-fixed text-gray-100 antialiased selection:bg-yellow-400 selection:text-black">
+
+  <!-- Top Sticky Header -->
+  <header class="sticky top-0 z-40 border-b border-red-900/60 bg-[#140204]/90 backdrop-blur-md px-4 py-3">
+    <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
+      
+      <!-- Left: Sidebar Toggle Button & Tour Title -->
+      <div class="flex items-center gap-3">
+        <button id="sidebarToggleBtn"
+          aria-label="Toggle Sidebar"
+          class="flex items-center gap-2 px-3 py-2 rounded-xl bg-red-950/80 border border-red-700/60 hover:border-yellow-400 hover:bg-red-900/60 text-yellow-300 font-bold transition-all shadow-md active:scale-95">
+          <svg id="sidebarIcon" class="w-5 h-5 transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+          <span class="text-xs md:text-sm font-semibold hidden sm:inline" id="toggleButtonText">收合曲目欄</span>
+        </button>
+
+        <div>
+          <div class="text-[10px] font-mono tracking-widest text-[#fbee4f] uppercase font-bold">
+            VAUNDY LIVE TOUR "HORO"
+          </div>
+          <h1 class="text-lg md:text-xl font-black italic tracking-tighter tour-gradient-text leading-tight">
+            台北小巨蛋 參戰大補帖
+          </h1>
+        </div>
+      </div>
+
+      <!-- Right: Reading Display Controls -->
+      <div class="flex items-center gap-2 text-xs">
+        <button id="toggleRubyBtn" class="px-2.5 py-1.5 rounded-lg bg-red-950/70 border border-red-800/50 hover:border-yellow-400 text-yellow-200 font-medium transition-all">
+          假名：<span id="rubyStatus" class="font-bold text-yellow-400">開</span>
+        </button>
+        <button id="toggleRomajiBtn" class="px-2.5 py-1.5 rounded-lg bg-red-950/70 border border-red-800/50 hover:border-yellow-400 text-yellow-200 font-medium transition-all">
+          羅馬音：<span id="romajiStatus" class="font-bold text-yellow-400">開</span>
+        </button>
+        <div class="hidden sm:flex items-center gap-1 bg-red-950/70 border border-red-800/50 rounded-lg px-2 py-1">
+          <span class="text-gray-400 text-[11px]">字級</span>
+          <button id="decreaseFont" class="px-1.5 hover:text-yellow-300 font-bold">−</button>
+          <span id="fontSizeDisplay" class="text-yellow-400 font-mono text-[11px]">中</span>
+          <button id="increaseFont" class="px-1.5 hover:text-yellow-300 font-bold">＋</button>
+        </div>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- App Layout Wrapper -->
+  <div class="relative flex-grow flex max-w-7xl w-full mx-auto overflow-hidden">
+
+    <!-- Backdrop for mobile drawer -->
+    <div id="sidebarBackdrop" class="fixed inset-0 bg-black/70 z-30 opacity-0 pointer-events-none transition-opacity duration-300 md:hidden"></div>
+
+    <!-- Collapsible Sidebar (Drawer) -->
+    <aside id="songSidebar"
+      class="fixed md:static inset-y-0 left-0 z-30 w-72 lg:w-80 flex-shrink-0 bg-[#160205] md:bg-[#160205]/70 border-r border-red-900/50 flex flex-col transition-all duration-300 transform -translate-x-full md:translate-x-0 h-[calc(100vh-57px)]">
+      
+      <!-- Sidebar Search & Filter -->
+      <div class="p-3 border-b border-red-900/40">
+        <div class="relative">
+          <input type="text" id="songSearchInput" placeholder="搜尋歌名、標題..."
+            class="w-full bg-black/60 border border-red-900/60 rounded-lg pl-8 pr-3 py-1.5 text-xs text-gray-200 placeholder-gray-500 focus:outline-none focus:border-yellow-400">
+          <svg class="w-3.5 h-3.5 text-gray-400 absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Songs List Nav -->
+      <nav class="flex-grow overflow-y-auto p-2 space-y-1" id="sidebarSongList">
+        <!-- Injected via JavaScript -->
+      </nav>
+
+      <!-- Sidebar Bottom Note -->
+      <div class="p-3 border-t border-red-950 bg-black/40 text-[11px] text-gray-400 flex items-center justify-between">
+        <span id="songCountDisplay">共 14 首參戰精選</span>
+        <span class="text-yellow-400 font-mono font-bold">2026 HORO</span>
+      </div>
+    </aside>
+
+    <!-- Main Content Panel -->
+    <main class="flex-grow p-4 md:p-6 lg:p-8 overflow-y-auto w-full max-w-4xl mx-auto">
+      <div id="contentContainer" class="transition-opacity duration-200">
+        <!-- Rendered Active Song Content -->
+      </div>
+    </main>
+
+    <!-- Custom Song Modal Backdrop -->
+    <div id="customSongModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm opacity-0 pointer-events-none transition-opacity duration-300 overflow-y-auto">
+      <div class="bg-[#1b0306] border border-red-800/60 rounded-2xl w-full max-w-3xl shadow-2xl overflow-hidden transform scale-95 transition-transform duration-300" id="customSongModalContent">
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between p-5 border-b border-red-900/60 bg-black/40">
+          <h3 class="text-xl font-bold text-yellow-300 tracking-wide flex items-center gap-2">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+            新增自訂歌曲
+          </h3>
+          <button id="closeModalBtn" class="text-gray-400 hover:text-white transition-colors">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+
+        <!-- Modal Body -->
+        <div class="p-6 max-h-[70vh] overflow-y-auto custom-scrollbar">
+          <div class="space-y-6">
+            
+            <!-- Basic Info Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-1.5">歌曲名稱 (日文) *</label>
+                <input type="text" id="customTitle" class="custom-input" placeholder="例：怪獣の花唄">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-1.5">歌曲名稱 (英文/羅馬拼音)</label>
+                <input type="text" id="customEnTitle" class="custom-input" placeholder="例：Kaiju no Hanauta">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-1.5">標籤 / 主題</label>
+                <input type="text" id="customTheme" class="custom-input" placeholder="例：國民級傳唱神曲">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-gray-300 mb-1.5">曲風氛圍</label>
+                <input type="text" id="customVibe" class="custom-input" placeholder="例：熱血青春 / 搖滾">
+              </div>
+            </div>
+
+            <!-- Descriptions -->
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-1.5">歌曲小百科</label>
+              <textarea id="customBg" class="custom-textarea min-h-[80px]" placeholder="輸入歌曲背景介紹..."></textarea>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-gray-300 mb-1.5">現場互動＆大合唱提點</label>
+              <textarea id="customLiveTip" class="custom-textarea min-h-[80px]" placeholder="輸入演唱會互動提示..."></textarea>
+            </div>
+
+            <!-- Lyrics Input Area -->
+            <div class="border-t border-red-900/40 pt-5">
+              <div class="flex items-center justify-between mb-3">
+                <label class="block text-sm font-bold text-cyan-300">歌詞輸入區塊</label>
+                <button id="addLyricBlockBtn" class="text-xs px-3 py-1.5 bg-red-900/50 hover:bg-red-800 text-yellow-200 rounded border border-red-700 transition-colors flex items-center gap-1">
+                  <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+                  新增歌詞段落
+                </button>
+              </div>
+              <p class="text-xs text-gray-400 mb-4">若需標註假名，請使用 Ruby 語法，例如：<code>&lt;ruby&gt;漢字&lt;rt&gt;かんじ&lt;/rt&gt;&lt;/ruby&gt;</code></p>
+              
+              <div id="lyricBlocksContainer" class="space-y-4">
+                <!-- Initial Lyric Block -->
+                <div class="lyric-block bg-black/30 p-4 rounded-xl border border-red-950 relative">
+                  <button class="remove-lyric-btn absolute top-2 right-2 text-gray-500 hover:text-red-400 p-1 hidden" title="移除此段落">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                  </button>
+                  <div class="space-y-3">
+                    <div>
+                      <input type="text" class="custom-input border-gray-700 lyric-kanji" placeholder="日文歌詞 (可包含 Ruby 語法)">
+                    </div>
+                    <div>
+                      <input type="text" class="custom-input border-gray-700 lyric-romaji text-cyan-300/80 font-mono text-xs" placeholder="羅馬拼音 (選填)">
+                    </div>
+                    <div>
+                      <input type="text" class="custom-input border-gray-700 lyric-zh text-gray-300" placeholder="中文翻譯 (選填)">
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="p-5 border-t border-red-900/60 bg-black/60 flex justify-end gap-3">
+          <button id="cancelModalBtn" class="px-5 py-2 rounded-lg text-sm font-bold text-gray-300 hover:bg-gray-800 transition-colors">
+            取消
+          </button>
+          <button id="saveCustomSongBtn" class="px-6 py-2 rounded-lg text-sm font-bold bg-gradient-to-r from-red-800 to-red-600 hover:from-red-700 hover:to-red-500 text-white shadow-lg border border-red-500/50 transition-all">
+            儲存並加入歌單
+          </button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="border-t border-red-950 bg-black/80 py-4 px-4 text-center text-xs text-gray-400">
+    <p>歌詞著作權歸詞曲創作者 Vaundy 及各權利方所有。本手冊精選短句供現場應援交流與發音練習。</p>
+  </footer>
+
+  <!-- Application Logic -->
+  <script>
+    // Song Database (with furigana in Kanji strings using <ruby>)
+    // For copyright reasons, we only keep max 4 lines of core singalong parts per song.
+    let songData = [
+      {
+        id: "homunculus",
+        num: "01",
+        title: "ホムンクルス",
+        enTitle: "Homunculus",
+        theme: "電影《我的英雄學院 劇場版：YOU'RE NEXT》主題曲",
+        vibe: "超絕熱血 / 動漫搖滾",
+        bg: "充滿爆發力的王道搖滾，歌詞與《我的英雄學院》的世界觀完美契合。從前奏就開始高速狂飆，描述面對困難時決不退縮、破壞障礙並勇敢覺醒的心境。",
+        liveTip: "【全場起爆倒數】主歌的倒數是必練重點！當 Vaundy 唱出「イチ、ニー、サン (1, 2, 3)」時，全場會跟著大喊「起爆上等 alright」，接著「サン、ニー、イチ (3, 2, 1)」時大喊「起爆、障壁崩壊」！",
+        quoteLines: [
+          {
+            kanji: "<ruby>一<rt>イチ</rt></ruby>、<ruby>二<rt>ニー</rt></ruby>、<ruby>三<rt>サン</rt></ruby>、<ruby>起爆<rt>きばく</rt></ruby><ruby>上等<rt>じょうとう</rt></ruby> alright",
+            romaji: "i chi, ni-, san, kibaku jyoutou ALRIGHT",
+            zh: "一、二、三、準備引爆 alright"
+          },
+          {
+            kanji: "<ruby>四<rt>ヨン</rt></ruby> で<ruby>開幕<rt>かいまく</rt></ruby>、<ruby>起爆<rt>きばく</rt></ruby>、<ruby>解放<rt>かいほう</rt></ruby><ruby>万歳<rt>ばんざい</rt></ruby>",
+            romaji: "yon de kaimaku, kaihou banzai",
+            zh: "隨著 四的到來、開始爆炸、解放萬歲"
+          },
+          {
+            kanji: "<ruby>三<rt>サン</rt></ruby>、<ruby>二<rt>ニー</rt></ruby>、<ruby>一<rt>イチ</rt></ruby>、ハイ、<ruby>起爆<rt>きばく</rt></ruby>、<ruby>障壁<rt>しょうへき</rt></ruby><ruby>崩壊<rt>ほうかい</rt></ruby>",
+            romaji: "san, ni-, i chi, ha i, kibaku, syouheki houkai",
+            zh: "三、二、一、好的、開始爆炸、障礙崩壞"
+          },
+          {
+            kanji: "<ruby>行<rt>い</rt></ruby>くぜ<ruby>喝采<rt>かっさい</rt></ruby>　<ruby>俺<rt>おれ</rt></ruby>が<ruby>来<rt>き</rt></ruby>た",
+            romaji: "iku ze kassai ore ga kita",
+            zh: "向前進吧喝采　我來了"
+          }
+        ],
+        searchQuery: "Vaundy ホムンクルス 歌詞"
+      },
+      {
+        id: "tokyo-flash",
+        num: "02",
+        title: "東京フラッシュ",
+        enTitle: "Tokyo Flash",
+        theme: "Vaundy 一戰成名的劃時代神曲",
+        vibe: "都會 City Pop / R&B 律動",
+        bg: "2019 年 Vaundy 自主上傳引發日本樂壇大地震的處女作代表。細膩描寫當代東京男女在霓虹夜色中游移、既寂寞又依戀的疏離感。洗腦的吉他切音與迷幻 Groove 讓人一聽難忘。",
+        liveTip: "【身體隨拍子搖擺】全場經典拍手律動曲！副歌「東京フラッシュ（Tokyo Flash）」緊接著全場齊聲合唱「何処へ行こう 何処へ行こう（doko e ikou doko e ikou）」，跟著節奏搖晃就對了！",
+        quoteLines: [
+          {
+            kanji: "<ruby>東京<rt>とうきょう</rt></ruby> フ ラ ッシュ　 <ruby>君<rt>きみ</rt></ruby> の <ruby>目<rt>め</rt></ruby> が <ruby>覚<rt>さ</rt></ruby> め た ら",
+            romaji: "toukyou furasshu kimi no megasameta-ra",
+            zh: "東京flash 如果你醒來了"
+          },
+          {
+            kanji: "<ruby>何処<rt>どこ</rt></ruby> へ <ruby>行<rt>い</rt></ruby> こ う <ruby>何処<rt>どこ</rt></ruby> へ <ruby>行<rt>い</rt></ruby> こ う　か わ ら な い よ",
+            romaji: "doko e ikou doko e ikou kawaranai yo",
+            zh: "去哪裡看看吧 無論去哪裡 都是一樣的喔"
+          },
+          {
+            kanji: "<ruby>東京<rt>とうきょう</rt></ruby>フ ラ ッ シュ　 <ruby>君<rt>きみ</rt></ruby> と <ruby>手<rt>て</rt></ruby> を <ruby>繋<rt>つな</rt></ruby> い だ ら",
+            romaji: "toukyou furasshu kimi to te o tsunai da ra",
+            zh: "東京flash 如果和你牽起了手"
+          },
+          {
+            kanji: "<ruby>何処<rt>どこ</rt></ruby> へ <ruby>行<rt>い</rt></ruby> こ う <ruby>何処<rt>どこ</rt></ruby> へ <ruby>行<rt>い</rt></ruby> こ う か わ ら な い よ",
+            romaji: "doko e ikou doko e ikou kawaranai yo",
+            zh: "去哪裡看看吧 無論去哪裡 都是一樣的喔"
+          }
+        ],
+        searchQuery: "Vaundy 東京フラッシュ 歌詞"
+      },
+      {
+        id: "hadaka-no-yuusha",
+        num: "03",
+        title: "裸の勇者",
+        enTitle: "Hadaka no Yuusha",
+        theme: "動畫《國王排名》第二季度片頭曲",
+        vibe: "壯闊史詩 / 重型搖滾",
+        bg: "完美貼合主角波吉的成長史詩。即便沒有強大力量、身負詛咒與嘲笑，依然用那雙渺小柔弱的手擁抱世界並守護珍愛的一切。副歌情感噴發，具有直擊靈魂深處的震撼力。",
+        liveTip: "【高舉握拳嘶吼「全部 (Zenbu)」】副歌每句結尾的重音「全部 (ぜんぶ)」是現場必跟著舉起拳頭嘶吼的重點段落，爆發力十足！",
+        quoteLines: [
+          {
+            kanji: "<ruby>愛<rt>あい</rt></ruby>してしまった",
+            romaji: "aishiteshimatta",
+            zh: "將深愛的一切"
+          },
+          {
+            kanji: "<ruby>全部<rt>ぜんぶ</rt></ruby>",
+            romaji: "zenbu",
+            zh: "全部"
+          },
+          {
+            kanji: "<ruby>降<rt>ふ</rt></ruby>りかかった<ruby>呪<rt>のろ</rt></ruby>いも",
+            romaji: "furikakatta noroi mo",
+            zh: "將遭受的詛咒"
+          },
+          {
+            kanji: "<ruby>全部<rt>ぜんぶ</rt></ruby>",
+            romaji: "zenbu",
+            zh: "全部"
+          }
+        ],
+        searchQuery: "Vaundy 裸の勇者 歌詞"
+      },
+      {
+        id: "fukakoryoku",
+        num: "04",
+        title: "不可幸力",
+        enTitle: "Fukakoryoku",
+        theme: "Spotify 廣告曲 / 突破億次播放傳奇曲",
+        vibe: "低語饒舌轉抒情交響",
+        bg: "「不可抗力」與「不可幸力」的雙關，探討在被慾望與資訊淹沒的混亂夜晚中，人們如何透過愛來相互救贖。前半段是冷調呢喃的嘻哈饒舌，後半突然昇華為壯麗的交響旋律，結構極為驚艷。",
+        liveTip: "【冷酷念唱與熱烈釋放】前段副歌全場一起冷酷地唸唱「welcome to the dirty night」，到了後半段 Vaundy 高歌「愛で（Ai de!）」時氣氛迎來大解放，揮手齊聲合唱！",
+        quoteLines: [
+          {
+            kanji: "<ruby>愛<rt>あい</rt></ruby>で",
+            romaji: "ai de",
+            zh: "靠愛情"
+          },
+          {
+            kanji: "<ruby>揺<rt>ゆ</rt></ruby>れる<ruby>世界<rt>せかい</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で<ruby>僕達<rt>ぼくたち</rt></ruby>は",
+            romaji: "yure ru sekai no naka de boku tachi wa",
+            zh: "待在動盪世界裡的我們"
+          },
+          {
+            kanji: "キスをしあって<ruby>生<rt>い</rt></ruby>きている",
+            romaji: "kisu wo shiatte iki te i ru",
+            zh: "親吻著彼此並活了下去"
+          },
+          {
+            kanji: "<ruby>揺<rt>ゆ</rt></ruby>れる<ruby>世界<rt>せかい</rt></ruby>の<ruby>中<rt>なか</rt></ruby>を<ruby>僕達<rt>ぼくたち</rt></ruby>は",
+            romaji: "yure ru sekai no naka wo boku tachi wa",
+            zh: "我們在動盪世界裡"
+          }
+        ],
+        searchQuery: "Vaundy 不可幸力 歌詞"
+      },
+      {
+        id: "hashire-sakamoto",
+        num: "05",
+        title: "走れSAKAMOTO",
+        enTitle: "Hashire SAKAMOTO",
+        theme: "人氣熱血漫改動畫《SAKAMOTO DAYS 坂本日常》片頭主題曲",
+        vibe: "高速疾走 / 動力龐克搖滾",
+        bg: "充滿速度感與幽默硬派殺手風範的歌曲。描述為了重要之人全力衝刺、踏破極限踩下油門的覺悟。重擊鼓點與急速吉他刷弦讓人腎上腺素飆升。",
+        liveTip: "【燃炸現場的衝刺大喊】「真っ赤になるまでアクセル踏み込んで」全速跟拍！最後的吶喊「走れ SAKAMOTO DAYS (Hashire SAKAMOTO DAYS)」記得跟著 Vaundy 竭力大吼！",
+        quoteLines: [
+          {
+            kanji: "<ruby>真<rt>ま</rt></ruby>っ<ruby>赤<rt>か</rt></ruby>になるまでアクセル<ruby>踏<rt>ふ</rt></ruby>み<ruby>込<rt>こ</rt></ruby>んで",
+            romaji: "makka ni naru made akuseru fumikonde",
+            zh: "直到紅燈前 都全力緊踩油門"
+          },
+          {
+            kanji: "それじゃ<ruby>足<rt>た</rt></ruby>りないまだ クタクタになれ",
+            romaji: "sore jya tarinai mada kutakuta ni nare",
+            zh: "這樣的話依舊不夠 拚盡全力筋疲力竭"
+          },
+          {
+            kanji: "きっと<ruby>航路<rt>こうろ</rt></ruby>に<ruby>立<rt>た</rt></ruby>っている",
+            romaji: "kitto kouro ni tatteiru",
+            zh: "一定會成為你的航路"
+          },
+          {
+            kanji: "<ruby>走<rt>はし</rt></ruby>れ SAKAMOTO DAYS",
+            romaji: "hashire sakamoto days",
+            zh: "奔跑向前 坂本日常"
+          }
+        ],
+        searchQuery: "Vaundy 走れSAKAMOTO 歌詞"
+      },
+      {
+        id: "fujin",
+        num: "06",
+        title: "風神",
+        enTitle: "Fujin",
+        theme: "TBS金曜連續劇《獅子的藏身處》主題曲",
+        vibe: "詩意與狂風 / 特色切分放克",
+        bg: "深入人與人之間的羈絆與摩擦。當人想要為他人著想、想要拯救對方時，身邊總會揚起狂風並帶來擦傷，但那份伴隨風而來的溫暖疼痛，正是生命活著與被救贖的證明。",
+        liveTip: "【切分節奏拍手】主歌的節奏非常有個性（大腦的意志 vs 心臟的呢喃），副歌「この先も誰かを想うたび 風纏い擦り傷が絶えないだろう」旋律流暢，隨風伸出雙手打拍子！",
+        quoteLines: [
+          {
+            kanji: "この <ruby>先<rt>さき</rt></ruby> も <ruby>誰<rt>だれ</rt></ruby> かを <ruby>想<rt>おも</rt></ruby> うたび",
+            romaji: "kono saki mo dare kawo omo utabi",
+            zh: "往後的日子裡 每當我思念起某個人"
+          },
+          {
+            kanji: "<ruby>風<rt>かぜ</rt></ruby> <ruby>纏<rt>まと</rt></ruby> い <ruby>擦<rt>す</rt></ruby> り <ruby>傷<rt>きず</rt></ruby> が <ruby>絶<rt>た</rt></ruby> えないだろう",
+            romaji: "kaze mato i su ri kizu ga ta enaidarou",
+            zh: "總會身纏狂風 擦傷不斷吧"
+          },
+          {
+            kanji: "だがやがてこの <ruby>風<rt>かぜ</rt></ruby>、 <ruby>受<rt>う</rt></ruby> けるたびに",
+            romaji: "dagayagatekono kaze, u kerutabini",
+            zh: "但在不久後 每當承受這陣風"
+          },
+          {
+            kanji: "その、 <ruby>変<rt>か</rt></ruby> え <ruby>難<rt>がた</rt></ruby> い ぬくい <ruby>痛<rt>いた</rt></ruby> みに",
+            romaji: "sono, ka e gata i nukui ita mini",
+            zh: "都希望能得到那無可替代的、溫暖痛楚的"
+          }
+        ],
+        searchQuery: "Vaundy 風神 歌詞"
+      },
+      {
+        id: "napori",
+        num: "07",
+        title: "napori",
+        enTitle: "napori",
+        theme: "長居榜單的浪漫經典 Chill 神曲",
+        vibe: "微醺爵士 / 浪漫抒情",
+        bg: "就算沒有好音樂，只要有彼此在身邊，哼著愛之歌漫步東京。歌詞中「napori ずっといたいよ」融合了那不勒斯義大利麵與浪漫異國遐想的雙關，營造極具生活感的私密情調。",
+        liveTip: "【手電筒燈海與合唱】現場通常會點亮一片浪漫的燈海！副歌無比順口的「napori ずっといたいよ」接連著「oh right, oh right, oh right」，是全場最溫馨齊唱的段落。",
+        quoteLines: [
+          {
+            kanji: "<ruby>僕<rt>ぼく</rt></ruby>ら<ruby>互<rt>たが</rt></ruby>いの<ruby>指<rt>ゆび</rt></ruby>を<ruby>絡<rt>から</rt></ruby>めあってもう",
+            romaji: "bokura tagai no yubi wo karameatte mou",
+            zh: "我們彼此的十指緊扣"
+          },
+          {
+            kanji: "napori ずっといたいよ",
+            romaji: "napori zutto itai yo",
+            zh: "napori 好想永遠停留於此啊"
+          },
+          {
+            kanji: "ここで<ruby>見<rt>み</rt></ruby>つめあって<ruby>互<rt>たが</rt></ruby>いに<ruby>安堵<rt>あんど</rt></ruby>する",
+            romaji: "koko de mitsumeatte tagai ni ando suru",
+            zh: "在這裡互相凝視 彼此感到安心"
+          },
+          {
+            kanji: "oh right oh right oh right",
+            romaji: "oh right oh right oh right",
+            zh: "oh right oh right oh right"
+          }
+        ],
+        searchQuery: "Vaundy napori 歌詞"
+      },
+      {
+        id: "odoriko",
+        num: "08",
+        title: "踊り子",
+        enTitle: "Odoriko",
+        theme: "MV 突破一億點擊代表作 / 小松菜奈主演 MV",
+        vibe: "極致 Groovy / 迷幻貝斯律動",
+        bg: "以極具代表性的 8-beat 貝斯彈奏貫穿全曲。描述青春期轉瞬即逝的曖昧情感、旋轉的舞步與時代洪流中的微小悸動。編曲極簡卻極致洗腦，是 Vaundy 現場氣氛最佳的曲目之一。",
+        liveTip: "【招牌洗腦旋律大合唱】全場一起唱「とぅるるる とぅるるる とぅるる (Turururu...)」！只要一聽到標誌性 Bassline，全場就會開始整齊拍手起舞！",
+        quoteLines: [
+          {
+            kanji: "<ruby>回<rt>まわ</rt></ruby>り<ruby>出<rt>だ</rt></ruby>した あの<ruby>子<rt>こ</rt></ruby>と<ruby>僕<rt>ぼく</rt></ruby>の<ruby>未来<rt>みらい</rt></ruby>が",
+            romaji: "mawaridashita anoko to boku no mirai ga",
+            zh: "開始轉動的 那個女孩與我的未來"
+          },
+          {
+            kanji: "<ruby>止<rt>と</rt></ruby>まりどっかで またやり<ruby>直<rt>なお</rt></ruby>せたら",
+            romaji: "tomari dokkade mata yarinaosetara",
+            zh: "若能在某處停下 重新來過的話"
+          },
+          {
+            kanji: "とぅるるる とぅるるる とぅるる",
+            romaji: "turururu turururu tururu",
+            zh: "嘟嚕嚕嚕 嘟嚕嚕嚕 嘟嚕嚕"
+          },
+          {
+            kanji: "とぅるるる とぅるるる とぅるる",
+            romaji: "turururu turururu tururu",
+            zh: "嘟嚕嚕嚕 嘟嚕嚕嚕 嘟嚕嚕"
+          }
+        ],
+        searchQuery: "Vaundy 踊り子 歌詞"
+      },
+      {
+        id: "sonna-bitter",
+        num: "09",
+        title: "そんなbitterな話",
+        enTitle: "Sonna Bitter na Hanashi",
+        theme: "ABEMA 戀愛實境秀《別被狼君所欺騙》主題曲",
+        vibe: "微苦輕快 / 流行搖滾",
+        bg: "把戀愛中的酸甜苦辣比喻成一口燙舌且苦澀的黑咖啡（hot and black）。即便深知可能走向終點、嚐到了濃烈的苦味，卻依然令人愛憐、回味無窮。",
+        liveTip: "【副歌微苦呼應】跟隨鼓點拍掌，副歌一句「ほろ苦い、そう苦い (horonigai, sou nigai)」是全場心神領會的合唱點！",
+        quoteLines: [
+          {
+            kanji: "ほろ<ruby>苦<rt>にが</rt></ruby>い、そう<ruby>苦<rt>にが</rt></ruby>い",
+            romaji: "horonigai, sou nigai",
+            zh: "嚐起來微微苦澀 無比苦澀"
+          },
+          {
+            kanji: "<ruby>僕<rt>ぼく</rt></ruby>たちの<ruby>望<rt>のぞ</rt></ruby>む<ruby>愛<rt>あい</rt></ruby>やらの<ruby>出口<rt>でぐち</rt></ruby>は",
+            romaji: "bokutachi no nozomu ai yara no deguchi wa",
+            zh: "我們所期盼的 名為愛的出口"
+          },
+          {
+            kanji: "<ruby>消<rt>き</rt></ruby>えることも　<ruby>見<rt>み</rt></ruby>えることも",
+            romaji: "kieru koto mo mieru koto mo",
+            zh: "彷彿不曾消失 無法看見"
+          },
+          {
+            kanji: "<ruby>忘<rt>わす</rt></ruby>れることもできぬように",
+            romaji: "wasureru koto mo dekinu you ni",
+            zh: "甚至沒能忘懷"
+          }
+        ],
+        searchQuery: "Vaundy そんなbitterな話 歌詞"
+      },
+      {
+        id: "koikaze",
+        num: "10",
+        title: "恋風邪にのせて",
+        enTitle: "Koikaze ni Nosete",
+        theme: "ABEMA《想談一場偶像劇般的戀愛》主題曲",
+        vibe: "溫暖甘甜 / 抒情靈魂樂",
+        bg: "「戀愛就像感冒一樣，不知不覺就染上了。」描述兩個人用笨拙而微不足道的愛相視而笑。成田凌與蒔田彩珠主演的昭和復古 MV 備受好評。",
+        liveTip: "【溫柔名台詞共鳴】整首歌帶著溫馨甜蜜的節奏，尤其是中段口白般的「心枯れるまで、共に笑っていよう」（直到心靈枯竭為止，一起笑下去吧），現場超級感人！",
+        quoteLines: [
+          {
+            kanji: "くだらない<ruby>愛<rt>あい</rt></ruby>で",
+            romaji: "ku da ra na i ai de",
+            zh: "用著微不足道的愛"
+          },
+          {
+            kanji: "<ruby>僕<rt>ぼく</rt></ruby>たちはいつも<ruby>笑<rt>わら</rt></ruby>っている",
+            romaji: "boku ta chi wa i tsu mo waratte i ru",
+            zh: "我們總是這樣笑著"
+          },
+          {
+            kanji: "<ruby>思<rt>おも</rt></ruby>い<ruby>出<rt>だ</rt></ruby>す<ruby>日々<rt>ひび</rt></ruby>が",
+            romaji: "omoi dasu hibi ga",
+            zh: "那些浮現腦海的歲月"
+          },
+          {
+            kanji: "<ruby>僕<rt>ぼく</rt></ruby>たちを<ruby>悲<rt>かな</rt></ruby>しませるの",
+            romaji: "boku ta chi wo kanashi ma se ru no",
+            zh: "卻又讓我們感到悲傷"
+          }
+        ],
+        searchQuery: "Vaundy 恋風邪にのせて 歌詞"
+      },
+      {
+        id: "shiwawase",
+        num: "11",
+        title: "しわあわせ",
+        enTitle: "Shiwawase",
+        theme: "專門學校首都醫校／大阪醫專廣告曲 / 震撼大合唱曲",
+        vibe: "宏偉史詩 / 催淚交響抒情",
+        bg: "歌名取自「皺紋（しわ）」與「幸福（しあわせ）」的雙關。講述兩人掌心緊握、手掌上的掌紋與歲月的皺紋重疊，相互交融的深刻羈絆。後半段磅礴的合唱極度震撼靈魂。",
+        liveTip: "【全場高舉雙手大合唱】演唱會最催淚的殺手鐧！唱到「変わらない 変われないよ 僕ら 今もしっかり握っている」時，全場會跟著 Vaundy 高舉緊握的雙手，震撼度破表！",
+        quoteLines: [
+          {
+            kanji: "<ruby>変<rt>か</rt></ruby>わらない",
+            romaji: "kawaranai",
+            zh: "不會改變"
+          },
+          {
+            kanji: "<ruby>変<rt>か</rt></ruby>われないよ <ruby>僕<rt>ぼく</rt></ruby>ら",
+            romaji: "kawarenai yo bokura",
+            zh: "也無法改變喔 我們"
+          },
+          {
+            kanji: "<ruby>今<rt>いま</rt></ruby>もしっかり<ruby>握<rt>にぎ</rt></ruby>っている",
+            romaji: "ima mo shikkari nigitte iru",
+            zh: "現在也依然緊緊握著"
+          },
+          {
+            kanji: "<ruby>今<rt>いま</rt></ruby>もしっかり<ruby>繋<rt>つな</rt></ruby>いでる<ruby>手<rt>て</rt></ruby>",
+            romaji: "ima mo shikkari tsunaideru te",
+            zh: "現在也依然緊緊牽著的手"
+          }
+        ],
+        searchQuery: "Vaundy しわあわせ 歌詞"
+      },
+      {
+        id: "time-paradox",
+        num: "12",
+        title: "タイムパラドックス",
+        enTitle: "Time Paradox",
+        theme: "《電影多啦A夢：大雄的地球交響樂》主題曲",
+        vibe: "溫柔童趣 / 懷抱希望的 Pop",
+        bg: "Vaundy 首次為多啦A夢電影創作。以口袋、未來的自己為主題，是一首跨越時空安撫現在的痛楚、為了讓未來的彼此能展露笑容而寫的溫暖之作。",
+        liveTip: "【溫暖合唱魔法】最後反覆唱頌的「笑ってて欲しいから 笑っててくれよ」，全場揮動雙手一同沉浸在滿滿的童年溫暖中！",
+        quoteLines: [
+          {
+            kanji: "だから<ruby>君<rt>きみ</rt></ruby>のポケットの<ruby>未来<rt>みらい</rt></ruby>の<ruby>僕<rt>ぼく</rt></ruby>もね",
+            romaji: "dakara kimi no poketto no mirai no boku mo ne",
+            zh: "所以你口袋中未來的我"
+          },
+          {
+            kanji: "<ruby>笑<rt>わら</rt></ruby>ってて<ruby>欲<rt>ほ</rt></ruby>しいかな",
+            romaji: "warattete hoshii ka na",
+            zh: "應該也希望你能笑著吧"
+          },
+          {
+            kanji: "<ruby>笑<rt>わら</rt></ruby>ってて<ruby>欲<rt>ほ</rt></ruby>しいから",
+            romaji: "warattete hoshii kara",
+            zh: "希望你能笑著"
+          },
+          {
+            kanji: "<ruby>笑<rt>わら</rt></ruby>っててくれよ",
+            romaji: "warattete kure yo",
+            zh: "所以對我笑一個吧"
+          }
+        ],
+        searchQuery: "Vaundy タイムパラドックス 歌詞"
+      },
+      {
+        id: "kokyu-no-youni",
+        num: "13",
+        title: "呼吸のように",
+        enTitle: "Kokyuu no You ni",
+        theme: "電影《正欲》（稻垣吾郎、新垣結衣主演）主題曲",
+        vibe: "內斂沉靜 / 穿透心靈的深情",
+        bg: "為探討社會少數與性癖異端之電影《正欲》量身打造。描繪生而為人的孤獨、渴望像呼吸一般自然地存在於世上並被心愛之人接納的深沉心願。",
+        liveTip: "【全場屏息專注聆聽】這首歌在演唱會是展現 Vaundy 驚人清唱與氣息控制的時刻，安靜專注地隨其聲線呼吸，後段音階攀升時全場雞皮疙瘩。",
+        quoteLines: [
+          {
+            kanji: "<ruby>何度<rt>なんど</rt></ruby>も　<ruby>君<rt>きみ</rt></ruby>に<ruby>言<rt>い</rt></ruby>うよ",
+            romaji: "Nando mo Kimi ni iu yo",
+            zh: "無論多少次 我仍會向你訴說"
+          },
+          {
+            kanji: "いつもの　ように　<ruby>呼吸<rt>こきゅう</rt></ruby>のように",
+            romaji: "Itsumono You ni Kokyuu no you ni",
+            zh: "就如同 往常一般 如同呼吸般"
+          },
+          {
+            kanji: "あぁ <ruby>僕<rt>ぼく</rt></ruby>の　<ruby>日々<rt>ひび</rt></ruby>の<ruby>中<rt>なか</rt></ruby>で　<ruby>君<rt>きみ</rt></ruby>が　まだ　<ruby>息<rt>いき</rt></ruby>を<ruby>吸<rt>す</rt></ruby>うなら",
+            romaji: "Aa Boku no Hibi no naka de Kimi ga Mada Iki wo suu nara",
+            zh: "啊 在我生活的日夜裡 若你還呼吸著"
+          },
+          {
+            kanji: "<ruby>僕<rt>ぼく</rt></ruby>は　<ruby>君<rt>きみ</rt></ruby>の<ruby>横<rt>よこ</rt></ruby>で　ずっと　<ruby>息<rt>いき</rt></ruby>を<ruby>吐<rt>は</rt></ruby>いてていいかい",
+            romaji: "Boku wa Kimi no yoko de Zutto Iki wo haitete ii kai",
+            zh: "我是否 能一直在你的身旁 呼吸呢"
+          }
+        ],
+        searchQuery: "Vaundy 呼吸のように 歌詞"
+      },
+      {
+        id: "sekai-no-himitsu",
+        num: "14",
+        title: "世界の秘密",
+        enTitle: "Sekai no Himitsu",
+        theme: "初期備受讚譽的哲理 Groove 曲",
+        vibe: "慵懶放克 / 黑色幽默",
+        bg: "面對社群網路上的喧鬧、善惡道德的爭執與八卦反覆，主角輕描淡寫地說「I'm sorry 發現了世界的秘密」。帶著反諷與超然的豁達，是 Vaundy 獨樹一幟的音樂風格展現。",
+        liveTip: "【輕快律動與道歉口白】副歌的「アイムソーリー（I'm sorry） 気づいちゃったよ」是標誌性的跟唱點，雙手隨輕鬆的放克鼓點擺動！",
+        quoteLines: [
+          {
+            kanji: "アイムソーリー",
+            romaji: "aimuso-ri-",
+            zh: "我很抱歉"
+          },
+          {
+            kanji: "<ruby>気<rt>き</rt></ruby>づいちゃったよ",
+            romaji: "kizuichatta yo",
+            zh: "注意到了唷"
+          },
+          {
+            kanji: "アイムソーリー",
+            romaji: "aimuso-ri-",
+            zh: "我很抱歉"
+          },
+          {
+            kanji: "<ruby>気<rt>き</rt></ruby>づいちゃったよ",
+            romaji: "kizuichatta yo",
+            zh: "注意到了唷"
+          }
+        ],
+        searchQuery: "Vaundy 世界の秘密 歌詞"
+      }
+    ];
+
+    let customSongsCount = 0;
+    let currentSongId = songData[0].id;
+    let showRuby = true;
+    let showRomaji = true;
+    let fontSizeState = 1; // 0: sm, 1: base, 2: lg
+    let isSidebarOpenDesktop = true;
+    let isSidebarOpenMobile = false;
+
+    function renderSidebar() {
+      const listEl = document.getElementById("sidebarSongList");
+      const searchTerm = (document.getElementById("songSearchInput").value || "").trim().toLowerCase();
+      
+      const filtered = songData.filter(s => 
+        s.title.toLowerCase().includes(searchTerm) || 
+        s.enTitle.toLowerCase().includes(searchTerm) ||
+        (s.num && s.num.includes(searchTerm))
+      );
+
+      // Ensure Add Custom Song button is always visible or integrated nicely
+      const addCustomBtnHtml = `
+        <button id="openCustomSongBtn" class="w-full text-left px-3 py-2.5 mt-2 rounded-xl border border-dashed border-yellow-500/50 hover:bg-yellow-900/20 text-yellow-400 transition-all duration-150 flex items-center justify-center gap-2 group">
+          <svg class="w-4 h-4 group-hover:scale-110 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"></path></svg>
+          <span class="text-sm font-bold">自訂新增歌詞</span>
+        </button>
+      `;
+
+      if (filtered.length === 0) {
+        listEl.innerHTML = `<div class="p-4 text-center text-xs text-gray-500">找不到相符的歌曲</div>` + addCustomBtnHtml;
+      } else {
+        listEl.innerHTML = filtered.map(song => {
+          const isActive = song.id === currentSongId;
+          const isCustom = song.isCustom;
+          return `
+            <button onclick="selectSong('${song.id}')"
+              class="w-full text-left px-3 py-2.5 rounded-xl transition-all duration-150 flex items-center justify-between group ${
+                isActive
+                  ? "bg-gradient-to-r from-red-900/90 to-red-800/80 border border-yellow-400/80 shadow-[0_0_10px_rgba(251,238,79,0.25)]"
+                  : "hover:bg-red-950/60 border border-transparent text-gray-300"
+              }">
+              <div class="flex items-center gap-2.5 truncate">
+                <span class="font-mono text-xs font-bold ${isActive ? 'text-yellow-400' : 'text-red-400/70 group-hover:text-yellow-400'}">
+                  ${song.num}
+                </span>
+                <div class="truncate">
+                  <div class="text-xs md:text-sm font-bold truncate ${isActive ? 'text-white' : 'text-gray-200 group-hover:text-white'}">
+                    ${song.title}
+                  </div>
+                  <div class="text-[10px] text-gray-400 truncate">
+                    ${song.enTitle}
+                  </div>
+                </div>
+              </div>
+              ${isActive ? '<span class="w-1.5 h-1.5 rounded-full bg-yellow-400 shadow-[0_0_6px_#fbee4f] flex-shrink-0"></span>' : ''}
+              ${isCustom && !isActive ? '<span class="text-[10px] text-yellow-500/50 border border-yellow-500/30 px-1 rounded">自訂</span>' : ''}
+            </button>
+          `;
+        }).join("") + addCustomBtnHtml;
+      }
+
+      // Re-attach event listener for the dynamic button
+      const openCustomBtn = document.getElementById('openCustomSongBtn');
+      if (openCustomBtn) {
+        openCustomBtn.addEventListener('click', openCustomModal);
+      }
+      
+      document.getElementById('songCountDisplay').innerText = `共 ${songData.length} 首參戰精選`;
+    }
+
+    function selectSong(id) {
+      currentSongId = id;
+      renderSidebar();
+      renderContent();
+
+      // On mobile, close sidebar drawer after selection
+      if (window.innerWidth < 768) {
+        toggleMobileSidebar(false);
+      }
+    }
+
+    function renderContent() {
+      const song = songData.find(s => s.id === currentSongId);
+      if (!song) return;
+
+      const container = document.getElementById("contentContainer");
+
+      const fontSizeClasses = [
+        "text-sm leading-relaxed",
+        "text-base leading-relaxed md:text-lg",
+        "text-lg leading-loose md:text-xl"
+      ][fontSizeState];
+
+      container.innerHTML = `
+        <article class="bg-[#1b0306]/90 border border-red-800/60 rounded-2xl p-5 md:p-8 shadow-2xl backdrop-blur-md relative overflow-hidden">
+          
+          <!-- Top Badge & Subtitle -->
+          <div class="flex flex-wrap items-center justify-between gap-3 border-b border-red-900/60 pb-5 mb-6">
+            <div>
+              <div class="flex items-center gap-2 mb-1">
+                <span class="px-2 py-0.5 rounded bg-red-950 border border-yellow-500/40 text-xs font-mono font-bold text-yellow-400">
+                  TRACK ${song.num}
+                </span>
+                <span class="text-xs text-yellow-200/80 font-medium">${song.theme}</span>
+              </div>
+              <h2 class="text-2xl md:text-4xl font-black text-white tracking-tight flex items-baseline gap-3">
+                ${song.title}
+                <span class="text-sm md:text-lg font-normal text-red-300 font-sans opacity-80">${song.enTitle}</span>
+              </h2>
+            </div>
+            <div class="px-3 py-1 rounded-full border border-cyan-400/40 bg-cyan-950/40 text-cyan-300 text-xs font-bold tracking-wide">
+              ${song.vibe}
+            </div>
+          </div>
+
+          <!-- Section 1: Song Encyclopedia -->
+          <div class="mb-6 rounded-xl bg-black/40 border border-red-900/40 p-4 md:p-5">
+            <h3 class="text-sm font-bold text-[#fbee4f] flex items-center gap-2 mb-2 tracking-wide uppercase">
+              <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20"><path d="M9 4.804A7.968 7.968 0 005.5 4c-1.255 0-2.443.29-3.5.804v10A7.969 7.969 0 015.5 14c1.669 0 3.218.51 4.5 1.385A7.962 7.962 0 0114.5 14c1.255 0 2.443.29 3.5.804v-10A7.968 7.968 0 0014.5 4c-1.255 0-2.443.29-3.5.804V12a1 1 0 11-2 0V4.804z"></path></svg>
+              歌曲小百科 (Song Profile)
+            </h3>
+            <p class="text-sm md:text-base text-gray-300 leading-relaxed">
+              ${song.bg}
+            </p>
+          </div>
+
+          <!-- Section 2: Concert Interaction Tips -->
+          <div class="mb-7 rounded-xl bg-gradient-to-r from-red-950/80 via-red-900/40 to-black/50 border border-yellow-500/40 p-4 md:p-5">
+            <h3 class="text-sm font-bold text-yellow-300 flex items-center gap-2 mb-2 tracking-wide uppercase">
+              <svg class="w-4 h-4 text-cyan-400" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z" clip-rule="evenodd"></path></svg>
+              現場互動＆大合唱提點 (Live Tips)
+            </h3>
+            <p class="text-sm md:text-base text-yellow-100 font-medium leading-relaxed">
+              ${song.liveTip}
+            </p>
+          </div>
+
+          <!-- Section 3: Core Singalong Highlights Card (Furigana / Romaji / Translation) -->
+          <div class="mb-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 gap-2">
+              <h3 class="text-sm font-bold text-cyan-300 tracking-wider flex items-center gap-2">
+                <span>✦</span> 歌詞對照 (UtaTen 格式)
+              </h3>
+              <span class="text-xs text-gray-400 bg-black/40 px-2 py-1 rounded">※ 僅收錄核心合唱段落，完整歌詞請搜尋</span>
+            </div>
+
+            <div class="space-y-4 bg-black/60 border border-red-950 rounded-xl p-4 md:p-6 ${fontSizeClasses}">
+              ${song.quoteLines.map((line) => `
+                <div class="group border-b border-red-950/80 pb-3 last:border-none last:pb-0">
+                  <!-- Japanese Lyric with Ruby -->
+                  <div class="text-white font-bold tracking-wider font-['Noto_Sans_JP']">
+                    ${line.kanji}
+                  </div>
+                  <!-- Romaji -->
+                  <div class="romaji-line text-xs md:text-sm text-cyan-300/80 font-mono mt-0.5">
+                    ${line.romaji}
+                  </div>
+                  <!-- Chinese Translation -->
+                  <div class="text-xs md:text-sm text-gray-300 font-normal mt-0.5">
+                    ${line.zh}
+                  </div>
+                </div>
+              `).join("")}
+            </div>
+          </div>
+
+          <!-- Section 4: Full Licensed Lyrics Search -->
+          <div class="pt-5 border-t border-red-900/40 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs text-gray-400">
+            <p>※ 深入練習整首歌曲，可前往合法授權歌詞網站查詢完整原文：</p>
+            <a href="https://www.google.com/search?q=${encodeURIComponent(song.searchQuery)}"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-gradient-to-r from-red-950 to-red-900/80 hover:from-yellow-400 hover:to-yellow-500 hover:text-black text-yellow-300 border border-red-700/60 font-bold transition-all flex-shrink-0 shadow-lg group">
+              <span>在 Google 搜尋《${song.title}》完整歌詞</span>
+              <svg class="w-3.5 h-3.5 transition-transform group-hover:translate-x-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
+            </a>
+          </div>
+
+        </article>
+      `;
+      applyDisplaySettings();
+    }
+
+    function applyDisplaySettings() {
+      const container = document.getElementById("contentContainer");
+      if (!container) return;
+
+      if (showRuby) {
+        container.classList.remove("hide-ruby");
+      } else {
+        container.classList.add("hide-ruby");
+      }
+
+      if (showRomaji) {
+        container.classList.remove("hide-romaji");
+      } else {
+        container.classList.add("hide-romaji");
+      }
+
+      document.getElementById("rubyStatus").innerText = showRuby ? "開" : "關";
+      document.getElementById("romajiStatus").innerText = showRomaji ? "開" : "關";
+    }
+
+    // Sidebar Toggle Functions
+    function toggleMobileSidebar(open) {
+      isSidebarOpenMobile = open !== undefined ? open : !isSidebarOpenMobile;
+      const sidebar = document.getElementById("songSidebar");
+      const backdrop = document.getElementById("sidebarBackdrop");
+
+      if (isSidebarOpenMobile) {
+        sidebar.classList.remove("-translate-x-full");
+        backdrop.classList.remove("opacity-0", "pointer-events-none");
+        backdrop.classList.add("opacity-100", "pointer-events-auto");
+      } else {
+        sidebar.classList.add("-translate-x-full");
+        backdrop.classList.add("opacity-0", "pointer-events-none");
+        backdrop.classList.remove("opacity-100", "pointer-events-auto");
+      }
+    }
+
+    function toggleDesktopSidebar() {
+      isSidebarOpenDesktop = !isSidebarOpenDesktop;
+      const sidebar = document.getElementById("songSidebar");
+      const toggleText = document.getElementById("toggleButtonText");
+
+      if (isSidebarOpenDesktop) {
+        sidebar.classList.remove("md:hidden");
+        toggleText.innerText = "收合曲目欄";
+      } else {
+        sidebar.classList.add("md:hidden");
+        toggleText.innerText = "展開曲目欄";
+      }
+    }
+
+    document.getElementById("sidebarToggleBtn").addEventListener("click", () => {
+      if (window.innerWidth < 768) {
+        toggleMobileSidebar();
+      } else {
+        toggleDesktopSidebar();
+      }
+    });
+
+    document.getElementById("sidebarBackdrop").addEventListener("click", () => {
+      toggleMobileSidebar(false);
+    });
+
+    // Real-time Song Search Filter
+    document.getElementById("songSearchInput").addEventListener("input", () => {
+      renderSidebar();
+    });
+
+    // Display Toggles
+    document.getElementById("toggleRubyBtn").addEventListener("click", () => {
+      showRuby = !showRuby;
+      applyDisplaySettings();
+    });
+
+    document.getElementById("toggleRomajiBtn").addEventListener("click", () => {
+      showRomaji = !showRomaji;
+      applyDisplaySettings();
+    });
+
+    document.getElementById("increaseFont").addEventListener("click", () => {
+      if (fontSizeState < 2) {
+        fontSizeState++;
+        updateFontSizeLabel();
+        renderContent();
+      }
+    });
+
+    document.getElementById("decreaseFont").addEventListener("click", () => {
+      if (fontSizeState > 0) {
+        fontSizeState--;
+        updateFontSizeLabel();
+        renderContent();
+      }
+    });
+
+    function updateFontSizeLabel() {
+      const labels = ["小", "中", "大"];
+      document.getElementById("fontSizeDisplay").innerText = labels[fontSizeState];
+    }
+
+    // --- Custom Song Modal Logic ---
+    const modal = document.getElementById('customSongModal');
+    const modalContent = document.getElementById('customSongModalContent');
+    const lyricBlocksContainer = document.getElementById('lyricBlocksContainer');
+
+    function openCustomModal() {
+      modal.classList.remove('opacity-0', 'pointer-events-none');
+      setTimeout(() => {
+        modalContent.classList.remove('scale-95');
+        modalContent.classList.add('scale-100');
+      }, 10);
+    }
+
+    function closeCustomModal() {
+      modalContent.classList.remove('scale-100');
+      modalContent.classList.add('scale-95');
+      setTimeout(() => {
+        modal.classList.add('opacity-0', 'pointer-events-none');
+      }, 200);
+    }
+
+    document.getElementById('closeModalBtn').addEventListener('click', closeCustomModal);
+    document.getElementById('cancelModalBtn').addEventListener('click', closeCustomModal);
+    
+    // Close modal when clicking outside
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) {
+        closeCustomModal();
+      }
+    });
+
+    // Add Lyric Block
+    document.getElementById('addLyricBlockBtn').addEventListener('click', () => {
+      const blockHTML = `
+        <div class="lyric-block bg-black/30 p-4 rounded-xl border border-red-950 relative mt-4">
+          <button class="remove-lyric-btn absolute top-2 right-2 text-gray-500 hover:text-red-400 p-1" title="移除此段落" onclick="this.closest('.lyric-block').remove(); updateRemoveButtons();">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+          <div class="space-y-3">
+            <div>
+              <input type="text" class="custom-input border-gray-700 lyric-kanji" placeholder="日文歌詞 (可包含 Ruby 語法)">
+            </div>
+            <div>
+              <input type="text" class="custom-input border-gray-700 lyric-romaji text-cyan-300/80 font-mono text-xs" placeholder="羅馬拼音 (選填)">
+            </div>
+            <div>
+              <input type="text" class="custom-input border-gray-700 lyric-zh text-gray-300" placeholder="中文翻譯 (選填)">
+            </div>
+          </div>
+        </div>
+      `;
+      lyricBlocksContainer.insertAdjacentHTML('beforeend', blockHTML);
+      updateRemoveButtons();
+    });
+
+    function updateRemoveButtons() {
+      const blocks = lyricBlocksContainer.querySelectorAll('.lyric-block');
+      const firstBtn = blocks[0].querySelector('.remove-lyric-btn');
+      if (blocks.length > 1) {
+        firstBtn.classList.remove('hidden');
+      } else {
+        firstBtn.classList.add('hidden');
+      }
+    }
+
+    // Save Custom Song
+    document.getElementById('saveCustomSongBtn').addEventListener('click', () => {
+      const titleInput = document.getElementById('customTitle');
+      if (!titleInput.value.trim()) {
+        titleInput.classList.add('border-red-500', 'animate-pulse');
+        setTimeout(() => titleInput.classList.remove('border-red-500', 'animate-pulse'), 2000);
+        return;
+      }
+
+      customSongsCount++;
+      const numStr = `C${String(customSongsCount).padStart(2, '0')}`;
+      const newId = `custom-song-${Date.now()}`;
+
+      const quoteLines = [];
+      const blocks = lyricBlocksContainer.querySelectorAll('.lyric-block');
+      blocks.forEach(block => {
+        const kanji = block.querySelector('.lyric-kanji').value.trim();
+        if (kanji) {
+          quoteLines.push({
+            kanji: kanji,
+            romaji: block.querySelector('.lyric-romaji').value.trim(),
+            zh: block.querySelector('.lyric-zh').value.trim()
+          });
+        }
+      });
+
+      // No length limit for user's custom songs, allowing full songs to be added manually
+      const newSong = {
+        id: newId,
+        num: numStr,
+        title: titleInput.value.trim(),
+        enTitle: document.getElementById('customEnTitle').value.trim() || 'Custom Title',
+        theme: document.getElementById('customTheme').value.trim() || 'User Added',
+        vibe: document.getElementById('customVibe').value.trim() || 'Custom',
+        bg: document.getElementById('customBg').value.trim() || '無提供歌曲背景。',
+        liveTip: document.getElementById('customLiveTip').value.trim() || '無提供互動提點。',
+        quoteLines: quoteLines.length > 0 ? quoteLines : [
+          { kanji: "歌詞尚未輸入", romaji: "-", zh: "-" }
+        ],
+        searchQuery: `${titleInput.value.trim()} 歌詞`,
+        isCustom: true
+      };
+
+      songData.push(newSong);
+      
+      // Reset form
+      titleInput.value = '';
+      document.getElementById('customEnTitle').value = '';
+      document.getElementById('customTheme').value = '';
+      document.getElementById('customVibe').value = '';
+      document.getElementById('customBg').value = '';
+      document.getElementById('customLiveTip').value = '';
+      
+      // Reset lyric blocks to just one empty block
+      const firstBlock = lyricBlocksContainer.querySelector('.lyric-block');
+      firstBlock.querySelector('.lyric-kanji').value = '';
+      firstBlock.querySelector('.lyric-romaji').value = '';
+      firstBlock.querySelector('.lyric-zh').value = '';
+      lyricBlocksContainer.innerHTML = '';
+      lyricBlocksContainer.appendChild(firstBlock);
+      updateRemoveButtons();
+
+      closeCustomModal();
+      
+      // Select the new song
+      document.getElementById('songSearchInput').value = ''; // Clear search to ensure it shows
+      selectSong(newId);
+    });
+
+    // Initialize
+    renderSidebar();
+    renderContent();
+  </script>
+</body>
+</html>
